@@ -1,3 +1,3 @@
-PROMT='
-Enzo%'s Custom ZShell Interface:
+PROMPT='
+Enzos Custom ZShell Interface:
 %1~ %# '
