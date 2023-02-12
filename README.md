@@ -1,1 +1,1 @@
-# .dotfiles
+# How to this dotfiles
