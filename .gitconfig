@@ -6,4 +6,6 @@
 [alias]
 	tree = log --graph --date=local --pretty=format:'%Cgreen%ad%Creset %Cred%h%Creset %an: %s %Creset %C(yellow)%d%Creset' --all
 	ac = !git add -A && git commit -m
+	acp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
+
 	
