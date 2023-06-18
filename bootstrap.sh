@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
   # set up nvim
   sudo apt install neovim
-  ln -s  ~/.dotfiles/.nvim/ ~/.nvim
+  ln -s  ~/.dotfiles/.nvim/ ~/.config/.nvim
   alias vi='nvim'
   alias vi='neovim'
   echo 'Neovim has been installed and mapped to vi'
@@ -33,12 +33,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 # sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   
   exec zsh
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+# elif [[ "$OSTYPE" == "darwin"* ]]; then
         # Mac OSX
-elif [[ "$OSTYPE" == "cygwin" ]]; then
+# elif [[ "$OSTYPE" == "cygwin" ]]; then
         # POSIX compatibility layer and Linux environment emulation for Windows
-elif [[ "$OSTYPE" == "msys" ]]; then
+# elif [[ "$OSTYPE" == "msys" ]]; then
         # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-fi
+ fi
 
 
