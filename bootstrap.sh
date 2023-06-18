@@ -19,14 +19,14 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   echo 'Neovim has been installed and mapped to vi'
 
   # Symlink fonts
-  ln -s ~/.dotfiles/.fonts  ~/.fonts
-  # Install fonts
-  if [[ "${PLATFORM}" == "linux" ]]; then
-		if ! type -P "fc-cache" >/dev/null; then
-			sudo apt update && sudo apt install -y fontconfig
-		fi
-		sudo fc-cache -f
-	fi
+#  ln -s ~/.dotfiles/.fonts  ~/.fonts
+#  # Install fonts
+#  if [[ "${PLATFORM}" == "linux" ]]; then
+#		if ! type -P "fc-cache" >/dev/null; then
+#			sudo apt update && sudo apt install -y fontconfig
+#		fi
+#		sudo fc-cache -f
+#	fi
 
 
   ln -s ~/.dotfiles/.zshrc ~/.zshrc
