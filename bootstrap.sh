@@ -1,15 +1,32 @@
+#!/bin/bash
+#
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  sudo apt get upgrade
-  sudo apt get update
 
-  sudo apt install zsh
-  echo whereis zsh
+  sudo apt-get upgrade
+  sudo apt-get update
+  if ! command -v zsh &> /dev/null; then
+    sudo apt install zsh  
+    echo whereis zsh
+  fi
+
   chsh -s $(which zsh)
   echo 'Shell changed to zsh'
-  echo 'Restarting shell...'
 
-  sudo apt install wget
-  sudo apt install git
+
+  # Install Oh My Zsh
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  # Install Powerlevel10k theme
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+  
+  # Configure Zsh to use Powerlevel10k
+  sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
+
+  # Reload Zsh configuration
+  source ~/.zshrc
+
+#  sudo apt install wget
+#  sudo apt install git
 
   # set up nvim
   sudo apt install neovim
@@ -19,6 +36,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     mv ~/.config/nvim ~/.config/nvim.backup
     rm -rf ~/.local/share/nvim/
   fi
+
   ln -s  ~/.dotfiles/.config/nvim/ ~/.config/nvim
   # alias vi='nvim'
   # alias vi='neovim'
