@@ -13,9 +13,15 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
   # set up nvim
   sudo apt install neovim
-  ln -s  ~/.dotfiles/.nvim/ ~/.config/.nvim
-  alias vi='nvim'
-  alias vi='neovim'
+  if [ -d ~/.config/nvim ]; then
+    echo "nvim folder exists, moving to backup"
+
+    mv ~/.config/nvim ~/.config/nvim.backup
+    rm -rf ~/.local/share/nvim/
+  fi
+  ln -s  ~/.dotfiles/.config/nvim/ ~/.config/nvim
+  # alias vi='nvim'
+  # alias vi='neovim'
   echo 'Neovim has been installed and mapped to vi'
 
   # Symlink fonts
